@@ -4,10 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="game.css">
     <title>Document</title>
 </head>
 
 <body>
+
+    <div class="slot">
+        <div id="slot-screen">
+            <ul class="reels">
+                <li class="reel"><img src="./images/1.png" alt=""></li>
+                <li class="reel"><img src="./images/2.png" alt=""></li>
+                <li class="reel"><img src="./images/3.png" alt=""></li>
+                <li class="reel"><img src="./images/4.png" alt=""></li>
+                <li class="reel"><img src="./images/5.png" alt=""></li>
+                <li class="reel"><img src="./images/6.png" alt=""></li>
+                <li class="reel"><img src="./images/7.png" alt=""></li>
+                <li class="reel"><img src="./images/8.png" alt=""></li>
+                <li class="reel"><img src="./images/9.png" alt=""></li>
+                <li class="reel"><img src="./images/10.png" alt=""></li>
+            </ul>
+
+            <ul class="reels">
+                <li class="reel"><img src="./images/2.png" alt=""></li>
+                <li class="reel"><img src="./images/6.png" alt=""></li>
+                <li class="reel"><img src="./images/9.png" alt=""></li>
+                <li class="reel"><img src="./images/7.png" alt=""></li>
+                <li class="reel"><img src="./images/3.png" alt=""></li>
+                <li class="reel"><img src="./images/1.png" alt=""></li>
+                <li class="reel"><img src="./images/8.png" alt=""></li>
+                <li class="reel"><img src="./images/4.png" alt=""></li>
+                <li class="reel"><img src="./images/10.png" alt=""></li>
+                <li class="reel"><img src="./images/5.png" alt=""></li>
+            </ul>
+
+            <ul class="reels">
+                <li class="reel"><img src="./images/5.png" alt=""></li>
+                <li class="reel"><img src="./images/9.png" alt=""></li>
+                <li class="reel"><img src="./images/6.png" alt=""></li>
+                <li class="reel"><img src="./images/10.png" alt=""></li>
+                <li class="reel"><img src="./images/1.png" alt=""></li>
+                <li class="reel"><img src="./images/3.png" alt=""></li>
+                <li class="reel"><img src="./images/4.png" alt=""></li>
+                <li class="reel"><img src="./images/7.png" alt=""></li>
+                <li class="reel"><img src="./images/2.png" alt=""></li>
+                <li class="reel"><img src="./images/8.png" alt=""></li>
+            </ul>
+
+        </div>
+    </div>
+
+    <button type="button" class="btn_stop" data-val="0" disabled="true"></button>
+    <button type="button" class="btn_stop" data-val="1" disabled="true"></button>
+    <button type="button" class="btn_stop" data-val="2" disabled="true"></button>
+
+    <div>
+        <button id="btn_start">start</button>
+    </div>
+
+
+    <script src="game.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </body>
 
 </html>
