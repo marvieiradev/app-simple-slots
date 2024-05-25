@@ -32,6 +32,7 @@ body {
 
 ul {
     list-style: none;
+    pointer-events: none;
 }
 
 ul li {
