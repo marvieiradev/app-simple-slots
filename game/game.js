@@ -1,93 +1,88 @@
-let slot_screen = document.getElementById("slot_screen");
-let reel = document.getElementsByClassName("reel");
-let reels = document.getElementsByClassName("reels");
-let btn_stop = document.getElementsByClassName("btn_stop");
-let btn_start = document.getElementById("btn_start");
+(() => {
+    "use strict";
 
-let sec = 100;              //velocidade de rotação da bobina do slot(execuções por segundo)
-let stopReelFlag = [];      //imagem quando o rolo parar
-let reelCounts = [];        //qual imagem posicionar
-let slotFrameHeight;        //tamanho do quadro
-let slotReelsHeight;        //tamanho geral do rolo/reel (imagem)
-let slotReelItemHeight;     //tamanho de um rolo/reel (imagem)
-let slotReelStartHeight;    //valor inicial da imagem
+    const itens = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
 
-//inicialização
-let slot = {
-    init: function () {
-        stopReelFlag[0] = stopReelFlag[1] = stopReelFlag[2] = false;
-        reelCounts[0] = reelCounts[1] = reelCounts[2] = 0;
-    },
-    //evento de click
-    start: function () {
-        slot.init();
-        for (let i = 0; i < 3; i++) {
-            slot.animation(i);
+    document.querySelector(".info").textContent = itens.join(" ");
+
+    const doors = document.querySelectorAll(".door");
+    document.querySelector('#start').addEventListener("click", spin);
+    document.querySelector('#stop').addEventListener("click", init);
+
+    async function spin() {
+        init(false, 1, 2);
+        for (const door of doors) {
+            const boxes = door.querySelector(".boxes");
+            const duration = parseInt(boxes.style.transitionDuration);
+            boxes.style.transform = "translateY(0)"
+            await new Promise((resolve) => setTimeout(resolve, duration * 100));
         }
-    },
-
-    //evento de click no botão parar
-    stop: function (i) {
-        stopReelFlag[i] = true
-        if (stopReelFlag[0] && stopReelFlag[1] && stopReelFlag[2]) {
-            btn_start.removeAttribute("disabled");
-        }
-        console.log("aaaaa");
-    },
-
-    //seta a primeira posição
-    resetLocationInfo: function () {
-        slotFrameHeight = slot_screen.offsetHeight;
-        slotReelsHeight = reels[0].offsetHeight;
-        slotReelItemHeight = reel[0].offsetHeight;
-        slotReelStartHeight = slotReelsHeight;
-        slotReelStartHeight += slotFrameHeight - (slotFrameHeight / 2) + slotReelsHeight * 3 / 2;
-        for (let i = 0; i < reels > length; i++) {
-            reels[i].style.top = string(slotReelStartHeight) + 'px';
-        }
-    },
-
-    //mover os slots
-    animation: function (index) {
-        if (reelCounts[index] >= 8) {
-            reelCounts[index] = 0;
-        }
-        $(".reels").eq(index).animate({
-            "top": slotReelStartHeight + (reelCounts[index] * slotReelItemHeight)
-        },
-            {
-                duration: sec,
-                easing: "linear",
-                complete: function () {
-                    if (stopReelFlag[index]) {
-                        return;
-                    }
-                    reelCounts[index]++;
-                    slot.animation(index);
-                }
-            });
-    },
-};
-
-window.onload = function () {
-    slot.init();
-    slot.resetLocationInfo();
-    btn_start.addEventListener("click", function (e) {
-        e.target.setAttribute("disabled", true);
-        slot.start();
-        for (let i = 0; i < btn_stop.length; i++) {
-            btn_stop[i].removeAttribute("disabled");
-        }
-    });
-    for (let i = 0; i < btn_stop.length; i++) {
-        btn_stop[i].addEventListener("click", function (e) {
-            slot.stop(e.target.getAttribute("data-val"));
-        })
     }
-};
 
+    function init(firstInit = true, groups = 1, duration = 1) {
+        for (const door of doors) {
+            if (firstInit) {
+                door.dataset.spinned = "0";
+            } else if (door.dataset.spinned === "1") {
+                return;
+            }
 
+            const boxes = door.querySelector(".boxes");
+            const boxesClone = boxes.cloneNode(false);
 
+            const pool = [""];
+            if (!firstInit) {
+                const arr = [];
+                for (let n = 0; n < (groups > 0 ? groups : 1); n++) {
+                    arr.push(...itens);
+                }
 
+                pool.push(...shuffle(arr));
 
+                boxesClone.addEventListener(
+                    "transitionart", () => {
+                        door.dataset.spinned = "1";
+                        this.querySelectorAll(".box").forEach((box) => {
+                            box.style.filter = "blur(1px)";
+                        });
+                    },
+                    { once: true }
+                );
 
+                boxesClone.addEventListener(
+                    "transitionend", () => {
+                        this.querySelectorAll(".box").forEach((box, index) => {
+                            box.style.filter = "blur(0)";
+                            if (index > 0) this.removeChild(box)
+                        });
+                    },
+                    { once: true }
+                );
+
+            }
+            for (let i = pool.length - 1; i >= 0; i--) {
+                const box = document.createElement("div");
+                box.classList.add("box");
+                box.style.width = door.clientWidth + "px";
+                box.style.height = door.clientHeight + "px";
+                boxesClone.appendChild(box);
+                box.textContent = pool[i];
+            }
+            boxesClone.style.transitionDuration = `${duration > 0 ? duration : 1}s`;
+            boxesClone.style.transform = `translateY(-${door.clientHeight * (pool.length - 1)}px)`;
+            door.replaceChild(boxesClone, boxes);
+        }
+    }
+
+    function shuffle([...arr]) {
+        console.log("aaaa")
+        let m = arr.length;
+        while (m) {
+            const i = Math.floor(Math.random() * m--);
+            [arr[m], arr[i]] = [arr[i], arr[m]];
+        }
+        return arr;
+
+    }
+    init();
+})();
