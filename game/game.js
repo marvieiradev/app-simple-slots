@@ -1,7 +1,7 @@
 (() => {
     "use strict";
 
-    const itens = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
+    const itens = ["🍒", "🍋", "🍉", "🔔", "⭐", "🍇"];
 
     document.querySelector(".info").textContent = itens.join(" ");
 
@@ -34,7 +34,10 @@
             if (!firstInit) {
                 const arr = [];
                 for (let n = 0; n < (groups > 0 ? groups : 1); n++) {
+                    //for (var i = 0; i >= 2; i++) {
                     arr.push(...itens);
+                    //}
+
                 }
 
                 pool.push(...shuffle(arr));
@@ -75,7 +78,6 @@
     }
 
     function shuffle([...arr]) {
-        console.log("aaaa")
         let m = arr.length;
         while (m) {
             const i = Math.floor(Math.random() * m--);
