@@ -1,14 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <iframe src="./game/game.html" frameborder="0"></iframe>
-</body>
-
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fortune Tiger Clone</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="game-container">
+      <div id="header-area">
+        <img src="images/topo.webp" alt="Fortune Tiger Logo" id="header-logo" />
+      </div>
+      <div id="slot-machine">
+        <div class="reels-container">
+          <div class="reel" id="reel1">
+            <div class="symbols-strip"></div>
+          </div>
+          <div class="reel" id="reel2">
+            <div class="symbols-strip"></div>
+          </div>
+          <div class="reel" id="reel3">
+            <div class="symbols-strip"></div>
+          </div>
+        </div>
+      </div>
+      <div id="feature-message-area">
+        <p id="feature-message">...</p>
+      </div>
+      <div id="controls-panel">
+        <div class="info-displays">
+          <div class="display-item" id="balance-container">
+            <span>Saldo:</span>
+            <span id="balance-display">1000.00</span>
+          </div>
+          <div class="display-item" id="bet-container">
+            <span>Aposta:</span>
+            <span id="bet-display">1.00</span>
+          </div>
+          <div class="display-item" id="win-container">
+            <span>Ganho:</span>
+            <span id="win-display">0.00</span>
+          </div>
+        </div>
+        <div id="buttons-area">
+          <button id="turbo-button" class="control-button round-button">
+            <i class="fa-solid fa-bolt"></i>
+          </button>
+          <button id="bet-minus-button" class="control-button round-button">
+            <i class="fa-solid fa-minus"></i>
+          </button>
+          <button
+            id="spin-button"
+            class="control-button round-button spin-button-main"
+          >
+            <i class="fa-solid fa-rotate"></i>
+          </button>
+          <button id="bet-plus-button" class="control-button round-button">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          <button id="auto-button" class="control-button round-button">
+            <i class="fa-solid fa-play"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/8e4a25e86e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
 </html>
