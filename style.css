@@ -1,0 +1,269 @@
+body {
+  font-family: "Arial Black", Gadget, sans-serif;
+  background-color: #6a0f0f;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+#game-container {
+  background: linear-gradient(to bottom, #7a1c1c, #5a0f0f);
+  border: 8px solid #ffd700;
+  border-radius: 25px;
+  padding: 10px;
+  width: 95%;
+  max-width: 400px;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.6), 0 0 15px rgba(0, 0, 0, 0.5) inset;
+  text-align: center;
+  position: relative;
+}
+
+#header-area {
+  background-color: transparent; /* Tornar transparente se o logo tiver fundo ou para melhor ajuste */
+  display: flex; /* Para centralizar o logo */
+  justify-content: center;
+  align-items: center;
+  min-height: 60px; /* Altura mínima para o logo */
+}
+
+#header-logo {
+  max-width: 100%; /* Logo ocupa no máximo 80% da largura do header */
+  height: 100%; /* Mantém a proporção da imagem */
+  max-height: 110px; /* Altura máxima para o logo */
+}
+
+#slot-machine {
+  background-color: #a02a2a;
+  border-radius: 10px;
+  padding: 7px;
+  margin-bottom: 15px;
+  border: 3px solid #e6ac00;
+}
+
+.reels-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #3b0a0a;
+  padding: 8px;
+  border-radius: 8px;
+  border: 4px solid #b38600;
+  margin-bottom: 10px;
+}
+
+.reel {
+  background-color: #fff5e6;
+  border: 2px solid #c89c00;
+  border-radius: 5px;
+  width: 31%; /* Ajustar se necessário para símbolos maiores */
+  height: 255px; /* Altura para 3 símbolos de 75px + margens (75px + 5px*2 = 85px por símbolo) */
+  overflow: hidden;
+}
+
+.symbols-strip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.symbol {
+  width: 75px; /* Aumentado em 50% de 50px */
+  height: 75px; /* Aumentado em 50% de 50px */
+  margin: 5px 0; /* Mantém a margem vertical */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.symbol img {
+  max-width: 150%;
+  max-height: 150%;
+  object-fit: contain;
+}
+
+#feature-message-area {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffdd57;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  min-height: 30px;
+  font-weight: bold;
+  font-size: 0.9em;
+  border: 1px solid #ffd700;
+}
+
+#feature-message {
+  opacity: 0;
+}
+
+#controls-panel {
+  background: linear-gradient(to bottom, #7a1c1c, #5a0f0f);
+  padding: 15px;
+  border-radius: 15px;
+  border-top: 4px solid #ffd700;
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.info-displays {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.display-item {
+  background-color: #4a0e0e;
+  padding: 2px 2px;
+  border-radius: 8px;
+  font-size: 0.8em;
+  border: 1px solid #b38600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  flex: 1;
+  margin: 0 3px;
+}
+
+.display-item span:first-child {
+  color: #ffc107;
+  font-weight: normal;
+  font-size: 0.8em;
+  margin-bottom: 2px;
+}
+
+.display-item span:last-child {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+#buttons-area {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 8px;
+}
+
+.control-button {
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #fff;
+}
+
+.control-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.round-button {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.2em;
+  padding: 0;
+}
+
+#turbo-button {
+  background-color: #8e44ad;
+  font-size: 1.5em;
+}
+#turbo-button:hover {
+  background-color: #9b59b6;
+}
+
+#bet-plus-button,
+#bet-minus-button {
+  background-color: #d35400;
+  font-size: 1em;
+}
+#bet-plus-button:hover,
+#bet-minus-button:hover {
+  background-color: #e67e22;
+}
+
+.spin-button-main {
+  background-color: #2ecc71;
+  width: 70px;
+  height: 70px;
+  font-size: 3em;
+  transition: transform 0.3s ease-in-out;
+}
+.spin-button-main:hover {
+  background-color: #27ae60;
+}
+
+#auto-button {
+  background-color: #3498db;
+  font-size: 1.5em;
+}
+#auto-button:hover {
+  background-color: #5dade2;
+}
+
+@media (max-width: 400px) {
+  .info-displays {
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 15px;
+  }
+  .display-item {
+    width: 80%;
+    margin: 0 auto;
+  }
+  #buttons-area {
+    gap: 5px;
+  }
+  .round-button {
+    width: 45px;
+    height: 45px;
+    font-size: 1em;
+  }
+  .spin-button-main {
+    width: 60px;
+    height: 60px;
+    font-size: 0.9em;
+  }
+  #turbo-button,
+  #bet-plus-button,
+  #bet-minus-button,
+  #auto-button {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 350px) {
+  .round-button {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9em;
+  }
+  .spin-button-main {
+    width: 55px;
+    height: 55px;
+    font-size: 0.8em;
+  }
+  #turbo-button,
+  #bet-plus-button,
+  #bet-minus-button,
+  #auto-button {
+    font-size: 1em;
+  }
+}
