@@ -7,18 +7,17 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  padding: 5px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #game-container {
   background: linear-gradient(to bottom, #7a1c1c, #5a0f0f);
-  border: 8px solid #ffd700;
-  border-radius: 25px;
-  padding: 10px;
-  width: 95%;
+  width: 100%;
   max-width: 400px;
-  box-shadow: 0 0 30px rgba(255, 215, 0, 0.6), 0 0 15px rgba(0, 0, 0, 0.5) inset;
+  height: 100%;
   text-align: center;
   position: relative;
 }
@@ -98,12 +97,13 @@ body {
   margin-bottom: 15px;
   min-height: 30px;
   font-weight: bold;
-  font-size: 0.9em;
+  font-size: 1.2em;
   border: 1px solid #ffd700;
 }
 
 #feature-message {
   opacity: 0;
+  font-family: "Caveat Brush", cursive;
 }
 
 #controls-panel {
@@ -218,9 +218,191 @@ body {
   background-color: #5dade2;
 }
 
+#modal-prize {
+  display: none;
+  position: fixed;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 400px;
+  overflow: auto;
+  background-color: rgba(74, 14, 14, 0.8);
+}
+
+#modal-prize-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: black;
+  width: 80%;
+  max-width: 400px;
+}
+
+#img-prize {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 10px;
+}
+
+#prize-amount {
+  font-family: "Caveat Brush", cursive;
+  text-align: center;
+  z-index: 100;
+  position: absolute;
+  top: 57%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  font-weight: 900;
+  font-size: calc(3.5vw + 0.4rem);
+  background: -webkit-linear-gradient(#fef68b, #f59233);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  height: 100%;
+  filter: drop-shadow(1px 0px 0px #fff) drop-shadow(0 2px 0px #b62d42)
+    drop-shadow(0 -1px 0px #5f070f) drop-shadow(-1px -1px 0px #5f070f)
+    drop-shadow(-1px 1px 0px #5f070f) drop-shadow(-1px 2px 0px #5f070f)
+    drop-shadow(1px -1px 0px #5f070f) drop-shadow(1px 1px 0px #5f070f);
+}
+
+#modal-button {
+  opacity: 0;
+  background-color: #890fbd;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1em;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+  z-index: 100;
+  font-weight: bold;
+}
+
+.shake {
+  animation: shake 0.3s infinite;
+}
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-2px, 0px) rotate(1deg);
+  }
+  20% {
+    transform: translate(2px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-2px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(2px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+.explode {
+  animation: explosion 0.7s;
+}
+@keyframes explosion {
+  0% {
+    filter: brightness(7) contrast(2);
+  }
+  10% {
+    filter: brightness(1) contrast(1);
+  }
+  20% {
+    filter: brightness(7) contrast(2);
+  }
+  30% {
+    filter: brightness(1) contrast(1);
+  }
+  40% {
+    filter: brightness(7) contrast(2);
+  }
+  100% {
+    filter: brightness(1) contrast(1);
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    scale: 1;
+  }
+  10% {
+    scale: 1.01;
+  }
+  20% {
+    scale: 1.02;
+  }
+  30% {
+    scale: 1.03;
+  }
+  40% {
+    scale: 1.04;
+  }
+  50% {
+    scale: 1.05;
+  }
+  60% {
+    scale: 1.04;
+  }
+  70% {
+    scale: 1.03;
+  }
+  80% {
+    scale: 1.02;
+  }
+  90% {
+    scale: 1.01;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+.bright {
+  background: radial-gradient(
+    circle at center,
+    rgba(254, 252, 234, 1) 0%,
+    #fd75a2 43%,
+    rgba(253, 117, 162, 0.5) 68%,
+    rgba(253, 117, 162, 0) 100%
+  );
+}
+
 @media (max-width: 400px) {
   .info-displays {
-    flex-direction: column;
     gap: 5px;
     margin-bottom: 15px;
   }

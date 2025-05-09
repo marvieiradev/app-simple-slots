@@ -178,6 +178,11 @@ document.addEventListener("DOMContentLoaded", () => {
       featureMessage.style.opacity = 1;
       featureMessage.textContent = `Você ganhou ${win.toFixed(2)}!`;
     }
+
+    if (win >= 20) {
+      showModal(win);
+    }
+
     updateDisplays();
     if (!autoMode) {
       spinButton.disabled = false;
@@ -250,6 +255,65 @@ document.addEventListener("DOMContentLoaded", () => {
       betMinusButton.disabled = false;
       turboButton.disabled = false; // Garante que o botão turbo seja reabilitado
     }
+  }
+
+  function showModal(prize) {
+    if (autoMode) {
+      toggleAutoMode();
+    }
+
+    let count = 1;
+    let finalPrize = 1;
+    const modal = document.getElementById("modal-prize");
+    const message = document.getElementById("prize-amount");
+    const closeButton = document.getElementById("modal-button");
+    const imgPrize = document.getElementById("img-prize");
+
+    modal.style.display = "flex";
+    modal.classList.add("bright");
+    message.classList.add("shake");
+
+    closeButton.addEventListener("click", () => {
+      modal.style.display = "none";
+      message.textContent = "";
+      modal.classList.remove("bright");
+      imgPrize.src = "";
+    });
+
+    const intervalId = setInterval(() => {
+      count++;
+      if (count == 1 && count <= prize) {
+        modal.classList.remove("explode");
+      }
+      if (count == 2 && count <= prize) {
+        imgPrize.src = "images/prize-1.webp";
+        modal.classList.add("explode");
+      }
+      if (count == 45 && count <= prize) {
+        modal.classList.remove("explode");
+      }
+      if (count == 50 && count <= prize) {
+        imgPrize.src = "images/prize-2.webp";
+        modal.classList.add("explode");
+      }
+      if (count == 95 && count <= prize) {
+        modal.classList.remove("explode");
+      }
+      if (count == 100 && count <= prize) {
+        imgPrize.src = "images/prize-3.webp";
+        modal.classList.add("explode");
+      }
+      console.log("Count: " + count);
+      finalPrize++;
+      message.textContent = "R$ " + finalPrize.toFixed(2);
+
+      if (finalPrize >= prize) {
+        closeButton.style.opacity = "1";
+        message.classList.remove("shake");
+        message.classList.add("pulse");
+        clearInterval(intervalId);
+      }
+    }, 50);
   }
 
   autoButton.addEventListener("click", toggleAutoMode);
