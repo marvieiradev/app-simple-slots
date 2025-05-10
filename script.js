@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const maxBet = 10.0;
   let turboMode = false;
   let autoMode = false;
+  let autoSpinInterval = null;
   let finalSpunSymbols = [[], [], []];
 
   function createSymbolElement(symbolPath) {

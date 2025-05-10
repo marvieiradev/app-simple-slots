@@ -1,22 +1,23 @@
 body {
   font-family: "Arial Black", Gadget, sans-serif;
-  background-color: #6a0f0f;
   color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
+  height: 100%;
   margin: 0;
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-image: url("images/bg.webp");
+  background-size: cover;
 }
 
 #game-container {
-  background: linear-gradient(to bottom, #7a1c1c, #5a0f0f);
+  background: linear-gradient(to right, #880a0e 0%, #dc1e2d 50%, #880a0e 100%);
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   height: 100%;
   text-align: center;
   position: relative;
@@ -33,32 +34,25 @@ body {
 #header-logo {
   max-width: 100%; /* Logo ocupa no máximo 80% da largura do header */
   height: 100%; /* Mantém a proporção da imagem */
-  max-height: 110px; /* Altura máxima para o logo */
 }
 
 #slot-machine {
-  background-color: #a02a2a;
-  border-radius: 10px;
   padding: 7px;
-  margin-bottom: 15px;
-  border: 3px solid #e6ac00;
+  background-image: url("images/roll.webp");
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 0;
 }
 
 .reels-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #3b0a0a;
   padding: 8px;
   border-radius: 8px;
-  border: 4px solid #b38600;
-  margin-bottom: 10px;
 }
 
 .reel {
-  background-color: #fff5e6;
-  border: 2px solid #c89c00;
-  border-radius: 5px;
   width: 31%; /* Ajustar se necessário para símbolos maiores */
   height: 255px; /* Altura para 3 símbolos de 75px + margens (75px + 5px*2 = 85px por símbolo) */
   overflow: hidden;
@@ -90,43 +84,46 @@ body {
 }
 
 #feature-message-area {
+  margin-top: 0;
   background-color: rgba(0, 0, 0, 0.5);
   color: #ffdd57;
-  padding: 8px;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  min-height: 30px;
+  width: 100%;
+  max-width: 500px;
+  height: 70px;
   font-weight: bold;
-  font-size: 1.2em;
-  border: 1px solid #ffd700;
+  font-size: 1.5em;
+  background-image: url("images/container_mensagem.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #feature-message {
   opacity: 0;
   font-family: "Caveat Brush", cursive;
-}
-
-#controls-panel {
-  background: linear-gradient(to bottom, #7a1c1c, #5a0f0f);
-  padding: 15px;
-  border-radius: 15px;
-  border-top: 4px solid #ffd700;
-  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.3);
+  padding: 12px 0;
+  margin: 0;
 }
 
 .info-displays {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-image: url("images/infos.webp");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  max-width: 500px;
   margin-bottom: 10px;
+  min-height: 60px;
+  margin-top: -3px;
 }
 
 .display-item {
-  background-color: #4a0e0e;
   padding: 2px 2px;
   border-radius: 8px;
-  font-size: 0.8em;
-  border: 1px solid #b38600;
+  font-size: 0.9em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -152,20 +149,23 @@ body {
 #buttons-area {
   display: flex;
   justify-content: space-around;
-  align-items: center;
   gap: 8px;
+  background-image: url("images/footer.webp");
+  background-size: cover;
+  height: 200px;
+  margin-top: -15px;
 }
 
 .control-button {
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
   color: #fff;
+  margin-top: 12.5px;
 }
 
 .control-button:active {
@@ -200,14 +200,16 @@ body {
 }
 
 .spin-button-main {
-  background-color: #2ecc71;
-  width: 70px;
-  height: 70px;
+  background-color: transparent;
+  width: 90px;
+  height: 90px;
   font-size: 3em;
   transition: transform 0.3s ease-in-out;
+  background-image: url("images/btnspin.webp");
+  background-size: cover;
 }
 .spin-button-main:hover {
-  background-color: #27ae60;
+  background-color: transparent;
 }
 
 #auto-button {
@@ -219,6 +221,7 @@ body {
 }
 
 #modal-prize {
+  overflow: hidden;
   display: none;
   position: fixed;
   flex-direction: column;
@@ -229,12 +232,13 @@ body {
   top: 0;
   height: 100%;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   overflow: auto;
   background-color: rgba(74, 14, 14, 0.8);
 }
 
 #modal-prize-content {
+  overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -245,7 +249,6 @@ body {
 
 #img-prize {
   width: 100%;
-  max-width: 320px;
   height: auto;
   border-radius: 10px;
 }
@@ -255,12 +258,12 @@ body {
   text-align: center;
   z-index: 100;
   position: absolute;
-  top: 57%;
+  top: 59%;
   left: 0;
   right: 0;
   margin: auto;
   font-weight: 900;
-  font-size: calc(3.5vw + 0.4rem);
+  font-size: 4rem;
   background: -webkit-linear-gradient(#fef68b, #f59233);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -392,6 +395,7 @@ body {
 }
 
 .bright {
+  overflow: hidden;
   background: radial-gradient(
     circle at center,
     rgba(254, 252, 234, 1) 0%,
@@ -401,7 +405,7 @@ body {
   );
 }
 
-@media (max-width: 400px) {
+/*@media (max-width: 400px) {
   .info-displays {
     gap: 5px;
     margin-bottom: 15px;
@@ -429,6 +433,10 @@ body {
   #auto-button {
     font-size: 1.2em;
   }
+
+  #prize-amount {
+    top: 50%;
+  }
 }
 
 @media (max-width: 350px) {
@@ -448,4 +456,7 @@ body {
   #auto-button {
     font-size: 1em;
   }
-}
+  #prize-amount {
+    top: 50%;
+  }
+}*/
