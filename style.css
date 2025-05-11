@@ -148,8 +148,8 @@ body {
 
 #buttons-area {
   display: flex;
-  justify-content: space-around;
-  gap: 8px;
+  justify-content: center;
+  gap: 30px;
   background-image: url("images/footer.webp");
   background-size: cover;
   height: 200px;
@@ -159,44 +159,52 @@ body {
 .control-button {
   border: none;
   cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  color: #fff;
+  width: 50px;
+  height: 50px;
+  padding: 0;
   margin-top: 12.5px;
 }
 
-.control-button:active {
-  transform: translateY(2px);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-}
-
 .round-button {
-  border-radius: 50%;
   width: 50px;
   height: 50px;
-  font-size: 1.2em;
   padding: 0;
 }
 
 #turbo-button {
-  background-color: #8e44ad;
-  font-size: 1.5em;
+  background-color: transparent;
+  background-image: url("images/turbo-btn.svg");
+  background-size: cover;
+  opacity: 0.2;
 }
 #turbo-button:hover {
   background-color: #9b59b6;
 }
 
-#bet-plus-button,
-#bet-minus-button {
-  background-color: #d35400;
-  font-size: 1em;
+#bet-plus-button {
+  background-color: transparent;
+  background-image: url("images/plus-btn.svg");
+  background-size: cover;
 }
-#bet-plus-button:hover,
-#bet-minus-button:hover {
-  background-color: #e67e22;
+
+#bet-minus-button {
+  background-color: transparent;
+  background-image: url("images/minus-btn.svg");
+  background-size: cover;
+}
+
+#auto-button {
+  background-color: transparent;
+  background-image: url("images/auto-btn.svg");
+  background-size: cover;
+  opacity: 0.2;
+}
+
+#turbo-button,
+#bet-minus-button,
+#bet-plus-button,
+#auto-button {
+  margin-top: 30px;
 }
 
 .spin-button-main {
@@ -210,14 +218,6 @@ body {
 }
 .spin-button-main:hover {
   background-color: transparent;
-}
-
-#auto-button {
-  background-color: #3498db;
-  font-size: 1.5em;
-}
-#auto-button:hover {
-  background-color: #5dade2;
 }
 
 #modal-prize {

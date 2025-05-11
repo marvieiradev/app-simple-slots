@@ -226,8 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   turboButton.addEventListener("click", () => {
     turboMode = !turboMode;
-    turboButton.textContent = turboMode ? "Turbo ON" : "Turbo OFF";
-    turboButton.style.backgroundColor = turboMode ? "#27ae60" : "#e67e22";
+    turboButton.style.opacity = turboMode ? 1 : 0.2;
     turboButton.style.fontSize = "0.8em";
     featureMessage.style.opacity = 1;
     featureMessage.textContent = `Modo Turbo ${
@@ -238,8 +237,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function toggleAutoMode() {
     autoMode = !autoMode;
     if (autoMode) {
-      autoButton.style.opacity = "1";
-      autoButton.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+      autoButton.style.opacity = 1;
+      featureMessage.style.opacity = 1;
       featureMessage.textContent = "Modo Auto Ativado";
       spinButton.disabled = true;
       betPlusButton.disabled = true;
@@ -247,8 +246,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // Turbo pode ser alterado durante o auto
       handleSpin();
     } else {
-      autoButton.style.opacity = "0.7";
-      autoButton.innerHTML = `<i class="fa-solid fa-play"></i>`;
+      autoButton.style.opacity = 0.2;
+      featureMessage.style.opacity = 1;
       featureMessage.textContent = "Modo Auto Desativado";
       clearTimeout(autoSpinInterval);
       spinButton.disabled = false;
@@ -321,6 +320,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   populateReels();
   updateDisplays();
-  turboButton.style.opacity = "0.7";
-  autoButton.style.opacity = "0.7";
 });
