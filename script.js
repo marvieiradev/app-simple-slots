@@ -16,14 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Caminhos para as imagens webp dos símbolos
   const symbols = [
-    "images/saco_moedas.webp",
-    "images/envelope_vermelho.webp",
-    "images/fogos_artificio.webp",
-    "images/amuleto_verde.webp",
-    "images/tigre_wild.webp",
+    "images/tesouro.webp",
+    "images/fichas.webp",
+    "images/fogos.webp",
+    "images/amuleto.webp",
+    "images/wild.webp",
     "images/laranja.webp",
   ];
-  const wildSymbol = "images/tigre_wild.webp";
+  const wildSymbol = "images/wild.webp";
   const symbolHeight = 85; // Altura de cada símbolo + margem (ajustar conforme necessário para imagens)
   const visibleSymbols = 3;
   const stripLength = 30;
@@ -78,11 +78,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Atualizar as chaves do objeto payouts para corresponder aos caminhos das imagens
     const payouts = {
       "images/laranja.webp": 2,
-      "images/envelope_vermelho.webp": 5,
-      "images/fogos_artificio.webp": 8,
-      "images/amuleto_verde.webp": 10,
-      "images/saco_moedas.webp": 15,
-      "images/tigre_wild.webp": 20,
+      "images/fichas.webp": 5,
+      "images/fogos.webp": 8,
+      "images/amuleto.webp": 10,
+      "images/tesouro.webp": 15,
+      "images/wild.webp": 20,
     };
 
     paylines.forEach((line) => {
