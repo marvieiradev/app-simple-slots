@@ -152,7 +152,7 @@ body {
   gap: 30px;
   background-image: url("images/footer.webp");
   background-size: cover;
-  height: 200px;
+  height: 210px;
   margin-top: -15px;
 }
 
@@ -163,12 +163,6 @@ body {
   height: 50px;
   padding: 0;
   margin-top: 12.5px;
-}
-
-.round-button {
-  width: 50px;
-  height: 50px;
-  padding: 0;
 }
 
 #turbo-button {
@@ -405,58 +399,32 @@ body {
   );
 }
 
-/*@media (max-width: 400px) {
+@media (max-width: 380px) {
   .info-displays {
-    gap: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    margin-top: -10px;
   }
-  .display-item {
-    width: 80%;
-    margin: 0 auto;
-  }
+
   #buttons-area {
-    gap: 5px;
-  }
-  .round-button {
-    width: 45px;
-    height: 45px;
-    font-size: 1em;
-  }
-  .spin-button-main {
-    width: 60px;
-    height: 60px;
-    font-size: 0.9em;
-  }
-  #turbo-button,
-  #bet-plus-button,
-  #bet-minus-button,
-  #auto-button {
-    font-size: 1.2em;
+    gap: 25px;
+    height: 210px;
+    margin-top: -20px;
   }
 
-  #prize-amount {
-    top: 50%;
-  }
-}
-
-@media (max-width: 350px) {
-  .round-button {
-    width: 40px;
-    height: 40px;
-    font-size: 0.9em;
+  .control-button {
+    width: 35px;
+    height: 35px;
+    margin-top: 8px;
   }
   .spin-button-main {
-    width: 55px;
-    height: 55px;
+    width: 67px;
+    height: 67px;
     font-size: 0.8em;
   }
   #turbo-button,
-  #bet-plus-button,
   #bet-minus-button,
+  #bet-plus-button,
   #auto-button {
-    font-size: 1em;
+    margin-top: 20px;
   }
-  #prize-amount {
-    top: 50%;
-  }
-}*/
+}
