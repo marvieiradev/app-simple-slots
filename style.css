@@ -256,7 +256,7 @@ body {
   left: 0;
   right: 0;
   margin: auto;
-  font-weight: 900;
+  font-weight: 800;
   font-size: 4rem;
   background: -webkit-linear-gradient(#fef68b, #f59233);
   -webkit-background-clip: text;
@@ -426,5 +426,10 @@ body {
   #bet-plus-button,
   #auto-button {
     margin-top: 20px;
+  }
+
+  #prize-amount {
+    top: 58%;
+    font-size: 3.5rem;
   }
 }
