@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "images/laranja.webp",
   ];
   const wildSymbol = "images/wild.webp";
-  const symbolHeight = 85; // Altura de cada símbolo + margem (ajustar conforme necessário para imagens)
+  const symbolHeight = 70; // Altura de cada símbolo + margem (ajustar conforme necessário para imagens)
   const visibleSymbols = 3;
   const stripLength = 30;
 

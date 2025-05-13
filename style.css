@@ -12,36 +12,40 @@ body {
   overflow: hidden;
   background-image: url("images/bg.webp");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 #game-container {
   background: linear-gradient(to right, #880a0e 0%, #dc1e2d 50%, #880a0e 100%);
   width: 100%;
-  max-width: 500px;
-  height: 100%;
+  height: 100vh;
+  max-width: 480px;
+  overflow: hidden;
   text-align: center;
   position: relative;
 }
 
 #header-area {
-  background-color: transparent; /* Tornar transparente se o logo tiver fundo ou para melhor ajuste */
-  display: flex; /* Para centralizar o logo */
-  justify-content: center;
+  display: flex;
   align-items: center;
-  min-height: 60px; /* Altura mínima para o logo */
-}
-
-#header-logo {
-  max-width: 100%; /* Logo ocupa no máximo 80% da largura do header */
-  height: 100%; /* Mantém a proporção da imagem */
+  justify-content: center;
+  width: 100%;
+  height: 20%;
+  object-fit: cover;
+  object-position: center bottom;
+  margin-bottom: -4px;
+  z-index: 0;
 }
 
 #slot-machine {
   padding: 7px;
   background-image: url("images/roll.webp");
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
   background-position: center;
-  margin-bottom: 0;
+  height: 49%;
 }
 
 .reels-container {
@@ -50,11 +54,12 @@ body {
   align-items: center;
   padding: 8px;
   border-radius: 8px;
+  margin-top: -5px;
 }
 
 .reel {
-  width: 31%; /* Ajustar se necessário para símbolos maiores */
-  height: 255px; /* Altura para 3 símbolos de 75px + margens (75px + 5px*2 = 85px por símbolo) */
+  width: 30%; /* Ajustar se necessário para símbolos maiores */
+  height: 380px; /* Altura para 3 símbolos de 75px + margens (75px + 5px*2 = 85px por símbolo) */
   overflow: hidden;
 }
 
@@ -65,43 +70,41 @@ body {
 }
 
 .symbol {
-  width: 75px; /* Aumentado em 50% de 50px */
-  height: 75px; /* Aumentado em 50% de 50px */
+  width: 124.5px; /* Aumentado em 50% de 50px */
+  height: 124.5px; /* Aumentado em 50% de 50px */
   margin: 5px 0; /* Mantém a margem vertical */
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: transparent;
   border: none;
-  padding: 2px;
   box-sizing: border-box;
 }
 
 .symbol img {
-  max-width: 150%;
-  max-height: 150%;
   object-fit: contain;
 }
 
 #feature-message-area {
-  margin-top: 0;
+  margin-top: -4px;
   background-color: rgba(0, 0, 0, 0.5);
   color: #ffdd57;
-  width: 100%;
-  max-width: 500px;
+  max-width: 480px;
   height: 70px;
   font-weight: bold;
   font-size: 1.5em;
   background-image: url("images/container_mensagem.webp");
-  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-size: cover;
+  z-index: -1;
+  aspect-ratio: 570 / 101;
+  width: 100%;
 }
 
 #feature-message {
   opacity: 0;
   font-family: "Caveat Brush", cursive;
-  padding: 12px 0;
+  padding: 17px 0;
   margin: 0;
 }
 
@@ -114,10 +117,9 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
-  max-width: 500px;
-  margin-bottom: 10px;
+  max-width: 480px;
   min-height: 60px;
-  margin-top: -3px;
+  aspect-ratio: 570 / 61;
 }
 
 .display-item {
@@ -152,8 +154,9 @@ body {
   gap: 30px;
   background-image: url("images/footer.webp");
   background-size: cover;
-  height: 210px;
-  margin-top: -15px;
+  aspect-ratio: 570 / 332;
+  width: 100%;
+  height: 24%;
 }
 
 .control-button {
@@ -226,7 +229,7 @@ body {
   top: 0;
   height: 100%;
   width: 100%;
-  max-width: 500px;
+  max-width: 480px;
   overflow: auto;
   background-color: rgba(74, 14, 14, 0.8);
 }
@@ -238,7 +241,7 @@ body {
   flex-direction: column;
   color: black;
   width: 80%;
-  max-width: 400px;
+  max-width: 480px;
 }
 
 #img-prize {
@@ -400,9 +403,34 @@ body {
 }
 
 @media (max-width: 380px) {
+  .reels-container {
+    margin-top: 10px;
+  }
+
+  .reel {
+    width: 31%; /* Ajustar se necessário para símbolos maiores */
+    height: 290px; /* Altura para 3 símbolos de 75px + margens (75px + 5px*2 = 85px por símbolo) */
+    overflow: hidden;
+    margin-top: 5px;
+  }
+
+  .symbol {
+    width: 89px; /* Aumentado em 50% de 50px */
+    height: 89px; /* Aumentado em 50% de 50px */
+    margin: 5px 0; /* Mantém a margem vertical */
+  }
   .info-displays {
     margin-bottom: 10px;
     margin-top: -10px;
+  }
+
+  #feature-message-area {
+    width: 100%;
+    height: auto;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: -10px;
+    margin-bottom: 5px;
   }
 
   #buttons-area {
@@ -429,7 +457,7 @@ body {
   }
 
   #prize-amount {
-    top: 58%;
+    top: 56%;
     font-size: 3.5rem;
   }
 }
