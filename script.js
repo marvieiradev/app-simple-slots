@@ -303,7 +303,6 @@ document.addEventListener("DOMContentLoaded", () => {
         imgPrize.src = "images/prize-3.webp";
         modal.classList.add("explode");
       }
-      console.log("Count: " + count);
       finalPrize++;
       message.textContent = "R$ " + finalPrize.toFixed(2);
 
