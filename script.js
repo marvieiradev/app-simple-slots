@@ -14,6 +14,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const turboButton = document.getElementById("turbo-button");
   const autoButton = document.getElementById("auto-button");
 
+  const bgSound = document.querySelector("#bgSound");
+  let clickSound = document.querySelector("#clickSound");
+  const spinSoundLong = document.querySelector("#spinSoundLong");
+  const spinSoundShort = document.querySelector("#spinSoundShort");
+  let coinsSound = document.querySelector("#coinsSound");
+  let win1 = document.querySelector("#win1");
+  let bigWinSound = document.querySelector("#bigWinSound");
+  let fogosSound = document.querySelector("#fogosSound");
+  let levelupSound = document.querySelector("#levelupSound");
+  let levelupSound2 = document.querySelector("#levelupSound2");
+
   // Caminhos para as imagens webp dos símbolos
   const symbols = [
     "images/tesouro.webp",
@@ -115,6 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function spinReel(reelStrip, reelIndex) {
+    turboMode ? spinSoundShort.play() : spinSoundLong.play();
     return new Promise((resolve) => {
       reelStrip.innerHTML = "";
       const currentStripSymbols = [];
@@ -135,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       reelStrip.offsetHeight;
 
-      const spinSpeed = turboMode ? 0.3 : 1.5;
+      const spinSpeed = turboMode ? 0.3 : 2;
       reelStrip.style.transition = `transform ${spinSpeed}s cubic-bezier(0.25, 0.1, 0.25, 1)`;
       reelStrip.style.transform = `translateY(${targetPosition}px)`;
 
