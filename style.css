@@ -40,25 +40,25 @@ body {
 }
 
 #slot-machine {
-  padding: 7px;
   background-image: url("images/roll.webp");
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  height: 49%;
+  background-size: cover;
+  background-position: center top;
+  width: 100%;
+  aspect-ratio: 533 / 439;
+  max-width: 480px;
 }
 
 .reels-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 8px;
-  border-radius: 8px;
+  padding: 10px;
   margin-top: -5px;
 }
 
 .reel {
-  width: 30%; /* Ajustar se necessário para símbolos maiores */
+  width: 28%; /* Ajustar se necessário para símbolos maiores */
   height: 380px; /* Altura para 3 símbolos de 75px + margens (75px + 5px*2 = 85px por símbolo) */
   overflow: hidden;
 }
@@ -70,8 +70,8 @@ body {
 }
 
 .symbol {
-  width: 124.5px; /* Aumentado em 50% de 50px */
-  height: 124.5px; /* Aumentado em 50% de 50px */
+  width: 117.5px; /* Aumentado em 50% de 50px */
+  height: 116px; /* Aumentado em 50% de 50px */
   margin: 5px 0; /* Mantém a margem vertical */
   display: flex;
   justify-content: center;
@@ -86,19 +86,14 @@ body {
 }
 
 #feature-message-area {
-  margin-top: -4px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #ffdd57;
-  max-width: 480px;
-  height: 70px;
-  font-weight: bold;
-  font-size: 1.5em;
   background-image: url("images/container_mensagem.webp");
   background-repeat: no-repeat;
   background-size: cover;
-  z-index: -1;
-  aspect-ratio: 570 / 101;
+  background-position: center top;
   width: 100%;
+  aspect-ratio: 570 / 101;
+  font-weight: bold;
+  font-size: 1.5em;
 }
 
 #feature-message {
@@ -109,17 +104,17 @@ body {
 }
 
 .info-displays {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   background-image: url("images/infos.webp");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+  aspect-ratio: 480 / 61;
   width: 100%;
   max-width: 480px;
-  min-height: 60px;
-  aspect-ratio: 570 / 61;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  display: flex;
+  gap: 5px;
+  padding: 0;
+  margin-top: -5px;
 }
 
 .display-item {
@@ -149,23 +144,28 @@ body {
 }
 
 #buttons-area {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
   background-image: url("images/footer.webp");
-  background-size: cover;
   aspect-ratio: 570 / 332;
   width: 100%;
   height: 24%;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-top: 2%;
+  padding-left: 0.2%;
+  position: relative;
+  margin-top: -10px;
+  gap: 30px;
 }
 
 .control-button {
   border: none;
   cursor: pointer;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   padding: 0;
-  margin-top: 12.5px;
+  margin-top: 2px;
 }
 
 #turbo-button {
@@ -201,7 +201,13 @@ body {
 #bet-minus-button,
 #bet-plus-button,
 #auto-button {
-  margin-top: 30px;
+  margin-top: 20px;
+}
+
+#bet-minus-button,
+#bet-plus-button {
+  width: 45px;
+  height: 45px;
 }
 
 .spin-button-main {
@@ -434,15 +440,15 @@ body {
   }
 
   #buttons-area {
-    gap: 25px;
+    gap: 20px;
     height: 210px;
-    margin-top: -20px;
+    margin-top: -15px;
   }
 
   .control-button {
     width: 35px;
     height: 35px;
-    margin-top: 8px;
+    margin-top: 0px;
   }
   .spin-button-main {
     width: 67px;
@@ -453,7 +459,7 @@ body {
   #bet-minus-button,
   #bet-plus-button,
   #auto-button {
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
   #prize-amount {
