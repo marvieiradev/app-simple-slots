@@ -279,19 +279,43 @@ body {
 
 #modal-button {
   opacity: 0;
-  background-color: #890fbd;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 1em;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 5px;
+  background-color: rgb(0, 102, 255);
+  text-shadow: rgb(0, 102, 255) 0px 1px 2px;
+  display: flex;
+  border-radius: 8px;
+  border: solid 2px rgb(0, 102, 255);
+  box-shadow: 0 0 25px rgb(0, 102, 255);
+  animation: shine 1.5s infinite;
+  transition: all;
   margin-top: 20px;
-  z-index: 100;
-  font-weight: bold;
+}
+
+.modal-button-inner {
+  background: linear-gradient(
+    180deg,
+    hsla(0, 0%, 100%, 0.5),
+    hsla(0, 0%, 100%, 0)
+  );
+  background-origin: border-box;
+  border: 0.87px solid hsla(0, 0%, 100%, 0.4);
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 800;
+  padding: 0.4rem 3rem;
+  cursor: pointer;
+}
+@keyframes shine {
+  0% {
+    box-shadow: 0 0 25px rgb(0, 102, 255);
+  }
+  50% {
+    box-shadow: 0 0 5px rgb(0, 102, 255), 0 0 25px rgb(0, 102, 255),
+      0 0 50px rgb(0, 102, 255), 0 0 100px rgb(0, 102, 255);
+  }
+  100% {
+    box-shadow: 0 0 25px rgb(0, 102, 255);
+  }
 }
 
 .shake {

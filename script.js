@@ -13,17 +13,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const betPlusButton = document.getElementById("bet-plus-button");
   const turboButton = document.getElementById("turbo-button");
   const autoButton = document.getElementById("auto-button");
+  const closeButton = document.getElementById("modal-button");
 
   const bgSound = document.querySelector("#bgSound");
   let clickSound = document.querySelector("#clickSound");
   const spinSoundLong = document.querySelector("#spinSoundLong");
   const spinSoundShort = document.querySelector("#spinSoundShort");
   let coinsSound = document.querySelector("#coinsSound");
-  let win1 = document.querySelector("#win1");
-  let bigWinSound = document.querySelector("#bigWinSound");
   let fogosSound = document.querySelector("#fogosSound");
-  let levelupSound = document.querySelector("#levelupSound");
-  let levelupSound2 = document.querySelector("#levelupSound2");
+  let winSound = document.querySelector("#winSound");
+  let bigWinSound = document.querySelector("#bigWinSound");
+  let megaWinSound = document.querySelector("#megaWinSound");
 
   // Caminhos para as imagens webp dos símbolos
   const symbols = [
@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let autoMode = false;
   let autoSpinInterval = null;
   let finalSpunSymbols = [[], [], []];
+  bgSound.volume = 0.5;
 
   function createSymbolElement(symbolPath) {
     const img = document.createElement("img");
@@ -156,6 +157,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function handleSpin() {
+    clickSound.play();
+    clickSound.volume = 0.2;
     if (balance < currentBet) {
       featureMessage.style.opacity = 1;
       featureMessage.textContent = "Saldo insuficiente!";
@@ -190,10 +193,13 @@ document.addEventListener("DOMContentLoaded", () => {
       winDisplay.textContent = win.toFixed(2);
       featureMessage.style.opacity = 1;
       featureMessage.textContent = `Você ganhou ${win.toFixed(2)}!`;
+      winSound.play();
+      winSound.volume = 0.5;
     }
 
     if (win >= 20) {
       showModal(win);
+      bgSound.volume = 0;
     }
 
     updateDisplays();
@@ -278,7 +284,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let finalPrize = 1;
     const modal = document.getElementById("modal-prize");
     const message = document.getElementById("prize-amount");
-    const closeButton = document.getElementById("modal-button");
     const imgPrize = document.getElementById("img-prize");
 
     modal.style.display = "flex";
@@ -286,13 +291,22 @@ document.addEventListener("DOMContentLoaded", () => {
     message.classList.add("shake");
 
     closeButton.addEventListener("click", () => {
+      clickSound.play();
+      clickSound.volume = 0.2;
       modal.style.display = "none";
       message.textContent = "";
       modal.classList.remove("bright");
       imgPrize.src = "";
+      bgSound.volume = 0.5;
+      coinsSound.pause();
+      coinsSound.currentTime = 0;
+      fogosSound.pause();
+      fogosSound.currentTime = 0;
+      closeButton.style.opacity = "0";
     });
 
     const intervalId = setInterval(() => {
+      coinsSound.play();
       count++;
       if (count == 1 && count <= prize) {
         modal.classList.remove("explode");
@@ -307,6 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (count == 50 && count <= prize) {
         imgPrize.src = "images/prize-2.webp";
         modal.classList.add("explode");
+        bigWinSound.play();
       }
       if (count == 95 && count <= prize) {
         modal.classList.remove("explode");
@@ -314,17 +329,23 @@ document.addEventListener("DOMContentLoaded", () => {
       if (count == 100 && count <= prize) {
         imgPrize.src = "images/prize-3.webp";
         modal.classList.add("explode");
+        megaWinSound.play();
       }
       finalPrize++;
       message.textContent = "R$ " + finalPrize.toFixed(2);
 
       if (finalPrize >= prize) {
-        closeButton.style.opacity = "1";
+        setTimeout(showBtn, 4000);
         message.classList.remove("shake");
         message.classList.add("pulse");
         clearInterval(intervalId);
+        fogosSound.play();
       }
     }, 50);
+  }
+
+  function showBtn() {
+    closeButton.style.opacity = "1";
   }
 
   autoButton.addEventListener("click", toggleAutoMode);
